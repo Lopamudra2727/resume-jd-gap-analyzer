@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzer Tests</title>
+  <style>
+    :root { color-scheme: light dark; --ok: #15803d; --bad: #b91c1c; --bg: #fff; --fg: #161a26; --mut: #6b7286; }
+    @media (prefers-color-scheme: dark) { :root { --ok: #4ade80; --bad: #f87171; --bg: #0d1017; --fg: #e8ebf3; --mut: #8b93a7; } }
+    body { font: 14px/1.5 ui-monospace, Consolas, monospace; background: var(--bg); color: var(--fg); margin: 0; padding: 24px 16px; max-width: 980px; margin: 0 auto; }
+    h1 { font: 600 20px system-ui, sans-serif; }
+    .ok { color: var(--ok); } .bad { color: var(--bad); } .mut { color: var(--mut); }
+    li { margin: 2px 0; } pre { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Resume–JD Gap Analyzer — test suite</h1>
+  <p id="summary" class="mut">Running…</p>
+  <ul id="list"></ul>
+  <h2 style="font:600 16px system-ui">Benchmark</h2>
+  <pre id="bench" class="mut"></pre>
+
+  <script src="../js/skills.js"></script>
+  <script src="../js/analyzer.js"></script>
+  <script src="../js/samples.js"></script>
+  <script src="tests.js"></script>
+  <script src="benchmark.js"></script>
+  <script>
+    const results = [];
+    GapTests.register((name, fn) => {
+      try { fn(); results.push({ name, ok: true }); } catch (e) { results.push({ name, ok: false, error: e.message }); }
+    }, GapAnalyzer, GapSamples);
+    const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    document.getElementById('list').innerHTML = results.map((r) =>
+      `<li class="${r.ok ? 'ok' : 'bad'}">${r.ok ? '✔' : '✘'} ${esc(r.name)}${r.ok ? '' : `<br><span class="mut">&nbsp;&nbsp;${esc(r.error)}</span>`}</li>`).join('');
+    const failed = results.filter((r) => !r.ok).length;
+    const s = document.getElementById('summary');
+    s.textContent = `${results.length - failed}/${results.length} tests passed`;
+    s.className = failed ? 'bad' : 'ok';
+
+    const b = GapBenchmark.run(GapAnalyzer, GapBenchmark.CASES);
+    const h = GapBenchmark.run(GapAnalyzer, GapBenchmark.HOLDOUT);
+    const t = GapBenchmark.timing(GapAnalyzer, GapSamples);
+    const pct = (x) => (x * 100).toFixed(1) + '%';
+    const block = (title, x) =>
+      `${title}: ${x.cases} sentences, ${x.labels} labels\n` +
+      `precision ${pct(x.precision)} · recall ${pct(x.recall)} · F1 ${pct(x.f1)}  (tp ${x.tp}, fp ${x.fp}, fn ${x.fn})\n` +
+      x.errors.map((e) => `  - "${e.text}"\n      extra=${JSON.stringify(e.extra)} missed=${JSON.stringify(e.missed)}`).join('\n');
+    document.getElementById('bench').textContent =
+      block('Development set', b) + '\n\n' + block('Held-out set', h) +
+      `\n\nAverage analysis time: ${t.avgMs.toFixed(2)} ms over ${t.runs} runs\n` +
+      `Taxonomy: ${JSON.stringify(GapAnalyzer.stats())}`;
+    window.__TEST_RESULTS = { results, failed, bench: b, holdout: h, timing: t, stats: GapAnalyzer.stats() };
+  </script>
+</body>
+</html>

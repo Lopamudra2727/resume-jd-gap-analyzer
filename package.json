@@ -1,0 +1,14 @@
+{
+  "name": "resume-jd-gap-analyzer",
+  "version": "1.0.0",
+  "description": "Client-side resume vs. job description gap analyzer: match score, missing skills, keyword gaps, ATS checks and a prioritized action plan.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node tests/run-node.js",
+    "start": "python -m http.server 8000"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,119 @@
+%PDF-1.4
+%ту╧╙
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+4 0 obj
+<< /Length 2595 >>
+stream
+BT
+14 TL
+50 760 Td
+/F1 10 Tf
+(Jordan Rivera) Tj T*
+/F1 10 Tf
+(Backend Software Engineer) Tj T*
+/F1 10 Tf
+(jordan.rivera@example.com | +1 \(555\) 012-3456 | linkedin.com/in/jordan-rivera-dev | github.com/jorda) Tj T*
+(nrivera-dev) Tj T*
+/F1 10 Tf
+() Tj T*
+/F2 11 Tf
+(SUMMARY) Tj T*
+/F1 10 Tf
+(Backend engineer with 4+ years of experience building Python services and REST APIs for e-commerce a) Tj T*
+(nd logistics products. Comfortable owning features end to end, from schema design to production moni) Tj T*
+(toring.) Tj T*
+/F1 10 Tf
+() Tj T*
+/F2 11 Tf
+(EXPERIENCE) Tj T*
+/F1 10 Tf
+(Software Engineer II Ч ParcelPoint Logistics) Tj T*
+/F1 10 Tf
+(Jan 2024 Ц Present) Tj T*
+/F1 10 Tf
+(Х Built a shipment-tracking platform in Django and PostgreSQL serving 1.2M requests/day with 99.95% ) Tj T*
+(uptime.) Tj T*
+/F1 10 Tf
+(Х Reduced p95 API latency from 420 ms to 140 ms by adding Redis caching and rewriting N+1 ORM querie) Tj T*
+(s.) Tj T*
+/F1 10 Tf
+(Х Designed an event pipeline on RabbitMQ and Celery that processes 300K carrier updates per hour.) Tj T*
+/F1 10 Tf
+(Х Migrated 14 services to Docker containers on AWS \(ECS, S3, RDS\), cutting infrastructure cost by 22) Tj T*
+(%.) Tj T*
+/F1 10 Tf
+(Х Set up GitHub Actions pipelines with automated tests, raising unit-test coverage from 48% to 85%.) Tj T*
+/F1 10 Tf
+(Х Mentored 3 junior engineers and led weekly code reviews.) Tj T*
+/F1 10 Tf
+() Tj T*
+/F1 10 Tf
+(Software Engineer Ч CartNest) Tj T*
+/F1 10 Tf
+(Aug 2022 Ц Dec 2023) Tj T*
+/F1 10 Tf
+(Х Developed checkout and inventory microservices with Flask and MySQL for 40K daily active users.) Tj T*
+/F1 10 Tf
+(Х Was responsible for the payments integration with Stripe; shipped refunds and partial captures.) Tj T*
+/F1 10 Tf
+(Х Wrote pytest suites and contract tests that caught 30+ regressions before release.) Tj T*
+/F1 10 Tf
+(Х Collaborated with product and design in two-week Scrum sprints.) Tj T*
+/F1 10 Tf
+() Tj T*
+/F2 11 Tf
+(PROJECTS) Tj T*
+/F1 10 Tf
+(Job Radar Ч side project) Tj T*
+/F1 10 Tf
+(Х Built an async scraper in Python with aiohttp that indexes 50K job posts per week into Elasticsear) Tj T*
+(ch.) Tj T*
+/F1 10 Tf
+() Tj T*
+/F2 11 Tf
+(EDUCATION) Tj T*
+/F1 10 Tf
+(B.Tech in Computer Science Ч State Technical University, 2018 Ц 2022) Tj T*
+/F1 10 Tf
+() Tj T*
+/F2 11 Tf
+(SKILLS) Tj T*
+/F1 10 Tf
+(Languages: Python, SQL, JavaScript) Tj T*
+/F1 10 Tf
+(Frameworks: Django, Flask, Celery) Tj T*
+/F1 10 Tf
+(Data & infra: PostgreSQL, MySQL, Redis, RabbitMQ, Elasticsearch, Docker, AWS, Linux, Git) Tj T*
+/F1 10 Tf
+(Practices: REST APIs, unit testing, Agile/Scrum, code review) Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+6 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000015 00000 n 
+0000000112 00000 n 
+0000000214 00000 n 
+0000000271 00000 n 
+0000002918 00000 n 
+0000003054 00000 n 
+trailer
+<< /Size 7 /Root 6 0 R >>
+startxref
+3103
+%%EOF
