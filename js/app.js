@@ -262,12 +262,15 @@
     $('dlJson').addEventListener('click', () => download(JSON.stringify(r, null, 2), 'resume-gap-report.json', 'application/json'));
     $('copyBtn').addEventListener('click', (e) => copy(summaryText(r), e.currentTarget));
 
-    requestAnimationFrame(() => requestAnimationFrame(() => {
+    const settle = () => {
       const ring = els.results.querySelector('.ring .value');
       if (ring) ring.style.strokeDashoffset = String(C * (1 - r.score / 100));
       els.results.querySelectorAll('.bar span[data-w]').forEach((b) => { b.style.width = b.dataset.w + '%'; });
-      if (!reduceMotion) countUp($('scoreNum'), r.score, 900);
-    }));
+    };
+    if (reduceMotion || document.hidden) { settle(); $('scoreNum').textContent = r.score; return; }
+    requestAnimationFrame(() => requestAnimationFrame(() => { settle(); countUp($('scoreNum'), r.score, 900); }));
+    // Background tabs pause animation frames; make sure the final values always land.
+    setTimeout(() => { settle(); const el = $('scoreNum'); if (el) el.textContent = r.score; }, 1100);
   }
 
   function countUp(el, target, ms) {
